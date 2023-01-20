@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ProcessEngineConfiguration
+        https://www.activiti.org/5.x/userguide/#configurationRoot
+        ① StandaloneProcessEngineConfiguration      单独运行的流程引擎
+        ② StandaloneInMemProcessEngineConfiguration 单元测试时的辅助类
+        ③ SpringProcessEngineConfiguration          在 Spring 环境下使用流程引擎
+        ④ JtaProcessEngineConfiguration             单独运行流程引擎 -->
+    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <!-- 数据库配置
+            https://www.activiti.org/5.x/userguide/#databaseConfiguration -->
+        <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>
+        <property name="jdbcDriver" value="org.h2.Driver"/>
+        <property name="jdbcUsername" value="sa"/>
+        <property name="jdbcPassword" value=""/>
+        <!-- databaseSchemaUpdate：设置流程引擎启动和关闭时如何处理数据库表
+            ① false（默认）：检查数据库表的版本和依赖库的版本，如果版本不匹配就抛出异常
+            ② true：构建流程引擎时，执行检查，如果需要就执行更新。如果表不存在，就创建
+            ③ create-drop：构建流程引擎时创建数据库表，关闭流程引擎时删除这些表 -->
+        <property name="databaseSchemaUpdate" value="true"/>
+
+        <!-- Job 执行器 & Async 执行器
+            https://www.activiti.org/5.x/userguide/#jobExecutorConfiguration
+            https://www.activiti.org/5.x/userguide/#_job_executor_activation
+            https://www.activiti.org/5.x/userguide/#_async_executor_activation -->
+        <property name="jobExecutorActivate" value="false"/>
+        <property name="asyncExecutorEnabled" value="true"/>
+        <property name="asyncExecutorActivate" value="true"/>
+
+        <!-- 邮件服务配置
+            https://www.activiti.org/5.x/userguide/#bpmnEmailTaskServerConfiguration -->
+        <property name="mailServerHost" value="mail.my-corp.com"/>
+        <property name="mailServerPort" value="5025"/>
+        
+        <!-- 历史记录配置
+            https://www.activiti.org/5.x/userguide/#historyConfig -->
+        <property name="history" value="audit" />
+        
+        <!-- 部署缓存配置：缓存流程定义，避免每次需要流程定义时都会访问数据库
+            https://www.activiti.org/5.x/userguide/#processDefinitionCacheConfiguration -->
+        <property name="processDefinitionCacheLimit" value="100" />
+    </bean>
+</beans>

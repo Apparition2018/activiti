@@ -1,10 +1,10 @@
-# Activiti
+# Activiti7
 
 ---
 ## Reference
 1. [Activiti](https://www.activiti.org/)
 2. [Activiti/Activiti](https://github.com/Activiti/Activiti)
-3. [Activiti 最全讲解_哔哩哔哩](https://www.bilibili.com/video/BV1t64y147v4)
+3. [Activiti 最全讲解](https://www.bilibili.com/video/BV1t64y147v4)
 ---
 ## 术语
 - BPM：Business Process Management，业务流程管理
@@ -36,11 +36,4 @@
         - TaskService: 任务管理类
         - HistoryService: 历史管理类
         - ManagerService: 引擎管理类
----
-## 整合 SpringBoot
-1. [依赖](pom.xml)
-2. [配置文件](src/main/resources/application.properties)
-3. 整合 SpringSecurity
-    1. [SecurityUtil](src/main/java/com/ljh/util/SecurityUtil.java)
-    2. [SpringSecurityConfiguration](src/main/java/com/ljh/config/SpringSecurityConfiguration.java)
 ---
