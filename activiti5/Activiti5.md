@@ -10,7 +10,7 @@
 - @see [activiti.cfg.xml](src/main/resources/activiti.cfg.xml)
 ### [JNDI 数据源配置](https://www.activiti.org/5.x/userguide/#jndiDatasourceConfig)
 
-### 数据库表名称说明
+### [数据库表名称说明](https://www.activiti.org/5.x/userguide/#database.tables.explained)
 | Identification | Word       | Use Case               |
 |----------------|------------|------------------------|
 | ACT_RE_        | repository | 静态信息：流程定义、流程资源（图像、规则等） |
@@ -19,7 +19,8 @@
 | ACT_HI_        | history    | 历史数据：流程实例、变量、任务等       |
 | ACT_GE_        | general    | 通用数据                   |
 ### [在表达式和脚本中暴露配置 beans](https://www.activiti.org/5.x/userguide/#exposingConfigurationBeans)
-### 日志
+
+### [日志](https://www.activiti.org/5.x/userguide/#loggingConfiguration)
 - [映射诊断上下文 (MDC)](https://www.activiti.org/5.x/userguide/#MDC)
 
 | ID                   |                        |
@@ -31,4 +32,6 @@
 # log4j.properties
 log4j.appender.consoleAppender.layout.ConversionPattern=ProcessDefinitionId=%X{mdcProcessDefinitionID} executionId=%X{mdcExecutionId} mdcProcessInstanceID=%X{mdcProcessInstanceID} mdcBusinessKey=%X{mdcBusinessKey} %m%n
 ```
+## [事件](https://www.activiti.org/5.x/userguide/#eventDispatcher)
+
 ---

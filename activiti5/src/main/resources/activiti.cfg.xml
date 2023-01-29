@@ -1,6 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- ProcessEngineConfiguration
         https://www.activiti.org/5.x/userguide/#configurationRoot
@@ -36,10 +36,29 @@
         
         <!-- 历史记录配置
             https://www.activiti.org/5.x/userguide/#historyConfig -->
-        <property name="history" value="audit" />
+        <property name="history" value="audit"/>
         
         <!-- 部署缓存配置：缓存流程定义，避免每次需要流程定义时都会访问数据库
             https://www.activiti.org/5.x/userguide/#processDefinitionCacheConfiguration -->
-        <property name="processDefinitionCacheLimit" value="100" />
+        <property name="processDefinitionCacheLimit" value="100"/>
+        
+        <!-- 事件 配置与安装
+            https://www.activiti.org/5.x/userguide/#eventDispatcherConfiguration -->
+        <!-- 任何事件均会触发 -->
+        <property name="eventListeners">
+            <list>
+                <bean class="com.ljh.listener.MyEventListener"/>
+            </list>
+        </property>
+        <!-- 特定的事件类型会触发 -->
+        <property name="typedEventListeners">
+            <map>
+                <entry key="JOB_EXECUTION_SUCCESS,JOB_EXECUTION_FAILURE">
+                    <list>
+                        <bean class="com.ljh.listener.MyEventListener"/>
+                    </list>
+                </entry>
+            </map>
+        </property>
     </bean>
 </beans>
