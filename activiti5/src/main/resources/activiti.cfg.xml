@@ -11,7 +11,8 @@
     <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
         <!-- 数据库配置
             https://www.activiti.org/5.x/userguide/#databaseConfiguration -->
-        <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>
+<!--        <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>-->
+        <property name="jdbcUrl" value="jdbc:h2:tcp://localhost/~/activiti"/>
         <property name="jdbcDriver" value="org.h2.Driver"/>
         <property name="jdbcUsername" value="sa"/>
         <property name="jdbcPassword" value=""/>
