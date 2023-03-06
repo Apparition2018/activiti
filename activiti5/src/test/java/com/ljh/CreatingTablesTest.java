@@ -30,7 +30,7 @@ public class CreatingTablesTest {
                 // .setJdbcUsername("root")
                 // .setJdbcPassword("root")
                 .setDataSource(dataSource)
-                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
+                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_CREATE_DROP)
                 .buildProcessEngine();
     }
 
@@ -41,7 +41,6 @@ public class CreatingTablesTest {
 
     @Test
     public void test3() {
-        // 
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
     }
 }
