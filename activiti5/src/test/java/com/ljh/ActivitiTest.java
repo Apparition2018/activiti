@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ActivitiTests
+ * ActivitiTest
  *
  * @author ljh
  * @since 2023/1/19 10:51
@@ -55,7 +55,7 @@ public class ActivitiTest {
         repositoryService.createDeployment()
                 .addClasspathResource("processes/VacationRequest.bpmn20.xml")
                 .deploy();
-        log.warn("Number of process definitions: " + repositoryService.createProcessDefinitionQuery().count());
+        log.info("Number of process definitions: " + repositoryService.createProcessDefinitionQuery().count());
         // 暂停/激活 流程
         repositoryService.suspendProcessDefinitionByKey("vacationRequest");
         repositoryService.activateProcessDefinitionByKey("vacationRequest");
@@ -67,16 +67,16 @@ public class ActivitiTest {
         variables.put("vacationMotivation", "I'm really tired!");
         RuntimeService runtimeService = processEngine.getRuntimeService();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("vacationRequest", variables);
-        log.warn("Number of process instances: " + runtimeService.createProcessInstanceQuery().count());
+        log.info("Number of process instances: " + runtimeService.createProcessInstanceQuery().count());
         // 暂停/激活 流程实例
         runtimeService.suspendProcessInstanceById(processInstance.getId());
         runtimeService.activateProcessInstanceById(processInstance.getId());
 
-        // 完成任务
+        /* 完成任务 */
         TaskService taskService = processEngine.getTaskService();
         List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup("management").list();
         for (Task task : tasks) {
-            log.warn("Task available: " + task.getName());
+            log.info("Task available: " + task.getName());
         }
         Task task = tasks.get(0);
         Map<String, Object> taskVariables = new HashMap<>();
@@ -137,6 +137,6 @@ public class ActivitiTest {
 
         // 根据流程例 ID 查询历史记录
         HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery().processInstanceId(procId).singleResult();
-        log.warn("Process instance end time: " + historicProcessInstance.getEndTime());
+        log.info("Process instance end time: " + historicProcessInstance.getEndTime());
     }
 }

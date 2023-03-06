@@ -15,43 +15,31 @@
     </properties>
 
     <dependencies>
-        <!-- 包含了 mybatis -->
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-engine</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
+        <!-- 包含了 activiti-engine, activiti-bpmn-converter
+            activiti-engine 包含了 mybatis
+            很多都包含了 activiti-bpmn-model -->
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-bpmn-model</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-bpmn-converter</artifactId>
-            <version>${activiti.version}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-bpmn-layout</artifactId>
-            <version>${activiti.version}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-json-converter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti.cloud.rb</groupId>
+            <artifactId>activiti-cloud-services-api</artifactId>
             <version>${activiti.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.activiti.cloud</groupId>-->
-<!--            <artifactId>activiti-cloud-services-api</artifactId>-->
-<!--            <version>${activiti.version}</version>-->
-<!--        </dependency>-->
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

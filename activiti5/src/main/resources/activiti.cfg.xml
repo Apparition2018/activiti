@@ -11,11 +11,15 @@
     <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
         <!-- 数据库配置
             https://www.activiti.org/5.x/userguide/#databaseConfiguration -->
-<!--        <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>-->
-        <property name="jdbcUrl" value="jdbc:h2:tcp://localhost/~/activiti"/>
-        <property name="jdbcDriver" value="org.h2.Driver"/>
-        <property name="jdbcUsername" value="sa"/>
-        <property name="jdbcPassword" value=""/>
+        <!-- <property name="jdbcDriver" value="org.h2.Driver"/> -->
+        <!-- <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/> -->
+        <!-- <property name="jdbcUrl" value="jdbc:h2:tcp://localhost/~/activiti"/> -->
+        <!-- <property name="jdbcUsername" value="sa"/> -->
+        <!-- <property name="jdbcPassword" value=""/> -->
+        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/activiti"/>
+        <property name="jdbcUsername" value="root"/>
+        <property name="jdbcPassword" value="root"/>
         <!-- databaseSchemaUpdate：设置流程引擎启动和关闭时如何处理数据库表
             ① false（默认）：检查数据库表的版本和依赖库的版本，如果版本不匹配就抛出异常
             ② true：构建流程引擎时，执行检查，如果需要就执行更新。如果表不存在，就创建
@@ -34,15 +38,15 @@
             https://www.activiti.org/5.x/userguide/#bpmnEmailTaskServerConfiguration -->
         <property name="mailServerHost" value="mail.my-corp.com"/>
         <property name="mailServerPort" value="5025"/>
-        
+
         <!-- 历史记录配置
             https://www.activiti.org/5.x/userguide/#historyConfig -->
         <property name="history" value="audit"/>
-        
+
         <!-- 部署缓存配置：缓存流程定义，避免每次需要流程定义时都会访问数据库
             https://www.activiti.org/5.x/userguide/#processDefinitionCacheConfiguration -->
         <property name="processDefinitionCacheLimit" value="100"/>
-        
+
         <!-- 事件 配置与安装
             https://www.activiti.org/5.x/userguide/#eventDispatcherConfiguration -->
         <!-- 任何事件均会触发 -->
