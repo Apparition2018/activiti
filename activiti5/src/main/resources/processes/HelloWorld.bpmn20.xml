@@ -1,49 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
-  <process id="HelloWorld" name="HelloWorld" isExecutable="true">
-    <startEvent id="start"/>
-    <endEvent id="end"/>
-    <userTask id="userTask1" name="提交申请" activiti:assignee="张三"/>
-    <userTask id="userTask2" name="审批【部门经理】" activiti:assignee="李四"/>
-    <userTask id="userTask3" name="审批【总经理】" activiti:assignee="王五"/>
-    <sequenceFlow id="flow1" sourceRef="start" targetRef="userTask1"/>
-    <sequenceFlow id="flow2" sourceRef="userTask1" targetRef="userTask2"/>
-    <sequenceFlow id="flow3" sourceRef="userTask2" targetRef="userTask3"/>
-    <sequenceFlow id="flow4" sourceRef="userTask3" targetRef="end"/>
-  </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_HelloWorld">
-    <bpmndi:BPMNPlane bpmnElement="HelloWorld" id="BPMNPlane_HelloWorld">
-      <bpmndi:BPMNShape id="shape-459c6338-3f5a-4695-beb6-3f9ebe60f580" bpmnElement="start">
-        <omgdc:Bounds x="-120" y="-280.0" width="30.0" height="30.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="shape-1d19e07e-471d-4e4d-bae4-e2412feb4922" bpmnElement="end">
-        <omgdc:Bounds x="-120" y="190.0" width="30.0" height="30.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="shape-e6b7cbcc-48f6-4403-853b-93bc03f02b57" bpmnElement="userTask1">
-        <omgdc:Bounds x="-165.0" y="-200.0" width="120.0" height="80.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-ca61e862-2b78-416c-b475-12e5d3edc1fe" bpmnElement="userTask2">
-        <omgdc:Bounds x="-165.0" y="-70.0" width="120.0" height="80.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-7aa40521-7628-41e4-a237-f83c90924056" bpmnElement="userTask3">
-        <omgdc:Bounds x="-165.0" y="60.0" width="120.0" height="80.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="edge-5a063f4d-37f6-4f81-9e6e-0324adb8894c" bpmnElement="flow1">
-        <omgdi:waypoint x="-105.0" y="-250.0"/>
-        <omgdi:waypoint x="-105.0" y="-200.0"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge-75e16dbf-2eea-4222-9368-1fdbb4bd7a4a" bpmnElement="flow2">
-        <omgdi:waypoint x="-105.0" y="-120.0"/>
-        <omgdi:waypoint x="-105.0" y="-70.0"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge-6f9c487b-09ed-4594-99b3-b291e7605634" bpmnElement="flow3">
-        <omgdi:waypoint x="-105.0" y="10.0"/>
-        <omgdi:waypoint x="-105.0" y="60.0"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge-01343c0e-5a5f-4b0a-ab6b-224ff6cdd80c" bpmnElement="flow4">
-        <omgdi:waypoint x="-105.0" y="140.0"/>
-        <omgdi:waypoint x="-105.0" y="190.0"/>
-      </bpmndi:BPMNEdge>
-    </bpmndi:BPMNPlane>
-  </bpmndi:BPMNDiagram>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="HelloWorld" name="HelloWorld" isExecutable="true">
+        <startEvent id="start"/>
+        <userTask id="userTask1" name="提交申请" activiti:assignee="张三"/>
+        <userTask id="userTask2" name="审批【部门经理】" activiti:assignee="李四"/>
+        <userTask id="userTask3" name="审批【总经理】" activiti:assignee="王五"/>
+        <endEvent id="end"/>
+        <sequenceFlow id="flow1" sourceRef="start" targetRef="userTask1"/>
+        <sequenceFlow id="flow2" sourceRef="userTask1" targetRef="userTask2"/>
+        <sequenceFlow id="flow3" sourceRef="userTask2" targetRef="userTask3"/>
+        <sequenceFlow id="flow4" sourceRef="userTask3" targetRef="end"/>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_HelloWorld">
+        <bpmndi:BPMNPlane bpmnElement="HelloWorld" id="BPMNPlane_HelloWorld">
+            <bpmndi:BPMNShape id="shape1" bpmnElement="start">
+                <omgdc:Bounds x="-120" y="-280.0" width="30.0" height="30.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape2" bpmnElement="userTask1">
+                <omgdc:Bounds x="-165.0" y="-200.0" width="120.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape3" bpmnElement="userTask2">
+                <omgdc:Bounds x="-165.0" y="-70.0" width="120.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape4" bpmnElement="userTask3">
+                <omgdc:Bounds x="-165.0" y="60.0" width="120.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape5" bpmnElement="end">
+                <omgdc:Bounds x="-120" y="190.0" width="30.0" height="30.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="edge1" bpmnElement="flow1">
+                <omgdi:waypoint x="-105.0" y="-250.0"/>
+                <omgdi:waypoint x="-105.0" y="-200.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge2" bpmnElement="flow2">
+                <omgdi:waypoint x="-105.0" y="-120.0"/>
+                <omgdi:waypoint x="-105.0" y="-70.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge3" bpmnElement="flow3">
+                <omgdi:waypoint x="-105.0" y="10.0"/>
+                <omgdi:waypoint x="-105.0" y="60.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge4" bpmnElement="flow4">
+                <omgdi:waypoint x="-105.0" y="140.0"/>
+                <omgdi:waypoint x="-105.0" y="190.0"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
 </definitions>

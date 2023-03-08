@@ -22,7 +22,7 @@ import java.util.zip.ZipInputStream;
  * @since 2023/3/6 10:32
  */
 @Slf4j
-public class ProcDefTest {
+public class ProcessDefinitionTest {
 
     private final ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 
@@ -85,7 +85,7 @@ public class ProcDefTest {
      * 启动流程
      */
     @Test
-    public void testStartProc() {
+    public void testStartProcess() {
         RuntimeService runtimeService = this.processEngine.getRuntimeService();
         runtimeService.startProcessInstanceByKey("HelloWorld");
     }

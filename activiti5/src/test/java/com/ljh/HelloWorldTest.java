@@ -11,6 +11,13 @@ import java.util.List;
 
 /**
  * <a href="https://www.bilibili.com/video/BV1Ut411y7NT/?p=9">HelloWorld Demo</a>
+ * <pre>
+ * 部署 ID         ACT_RE_DEPLOYMENT - ID_
+ * 流程定义 ID      ACT_RE_PROCDEF - ID_
+ * 流程实例 ID      ACT_RU_EXECUTION - ID_
+ * 流程执行 ID      ACT_RU_TASK - EXECUTION_ID_
+ * 任务 ID         ACT_RU_TASK - ID_
+ * </pre>
  *
  * @author ljh
  * @since 2023/2/24 17:21
@@ -38,7 +45,7 @@ public class HelloWorldTest {
      * 启动流程
      */
     @Test
-    public void testStartProc() {
+    public void testStartProcess() {
         RuntimeService runtimeService = this.processEngine.getRuntimeService();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("HelloWorld");
         log.info("启动成功：实例 ID 为 {}", processInstance.getId());
@@ -54,18 +61,17 @@ public class HelloWorldTest {
         // 查询任务
         // 分别改变参数 张三/李四/王五 执行
         List<Task> taskList = taskService.createTaskQuery().taskAssignee("王五").list();
-        if (taskList.size() > 0) {
-            for (Task task : taskList) {
-                log.info("任务 ID：{}", task.getId());
-                log.info("流程执行 ID：{}", task.getExecutionId());
-                log.info("流程实例 ID：{}", task.getProcessInstanceId());
-                log.info("流程定义 ID：{}", task.getProcessDefinitionId());
-                log.info("任务名称 ID：{}", task.getName());
-                log.info("任务办理人 ID：{}", task.getAssignee());
+        taskList.forEach(task -> {
+            log.info("任务 ID：{}", task.getId());
+            log.info("流程执行 ID：{}", task.getExecutionId());
+            log.info("流程实例 ID：{}", task.getProcessInstanceId());
+            log.info("流程定义 ID：{}", task.getProcessDefinitionId());
+            log.info("任务名称 ID：{}", task.getName());
+            log.info("任务办理人 ID：{}", task.getAssignee());
+            log.info("==============================");
 
-                // 完成任务
-                taskService.complete(task.getId());
-            }
-        }
+            // 完成任务
+            taskService.complete(task.getId());
+        });
     }
 }
