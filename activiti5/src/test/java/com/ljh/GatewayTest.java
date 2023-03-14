@@ -78,4 +78,73 @@ public class GatewayTest {
             });
         }
     }
+
+    /**
+     * <a href="https://www.bilibili.com/video/BV1Ut411y7NT/?p=16">并行网关</a>
+     */
+    public static class ParallelGatewayTest {
+
+        private final ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+
+        /**
+         * 部署流程
+         */
+        @Test
+        public void testDeploymentByClasspathResource() {
+            RepositoryService repositoryService = this.processEngine.getRepositoryService();
+            repositoryService.createDeployment()
+                    .name("网购流程")
+                    .addClasspathResource("processes/ParallelGateway.bpmn20.xml")
+                    .addClasspathResource("processes/ParallelGateway.png")
+                    .deploy();
+        }
+
+        /**
+         * 启动流程
+         */
+        @Test
+        public void testStartProcess() {
+            RuntimeService runtimeService = this.processEngine.getRuntimeService();
+            runtimeService.startProcessInstanceByKey("ParallelGateway");
+        }
+
+        /**
+         * 买家付款
+         */
+        @Test
+        public void testCompleteTask1() {
+            TaskService taskService = this.processEngine.getTaskService();
+            List<Task> taskList = taskService.createTaskQuery().taskAssignee("买家").list();
+            taskList.forEach(task -> {
+                taskService.complete(task.getId());
+                log.info("完成任务");
+            });
+        }
+
+        /**
+         * 商家发货/收款
+         */
+        @Test
+        public void testCompleteTask2() {
+            TaskService taskService = this.processEngine.getTaskService();
+            List<Task> taskList = taskService.createTaskQuery().taskAssignee("商家").list();
+            taskList.forEach(task -> {
+                taskService.complete(task.getId());
+                log.info("完成任务");
+            });
+        }
+
+        /**
+         * 买家收货
+         */
+        @Test
+        public void testCompleteTask3() {
+            TaskService taskService = this.processEngine.getTaskService();
+            List<Task> taskList = taskService.createTaskQuery().taskAssignee("买家").list();
+            taskList.forEach(task -> {
+                taskService.complete(task.getId());
+                log.info("完成任务");
+            });
+        }
+    }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="ReceiveTask" name="ReceiveTask" isExecutable="true">
+    <startEvent id="start"/>
+    <receiveTask id="receiveTask1" name="汇总当日销售额"/>
+    <receiveTask id="receiveTask2" name="发短信给领导"/>
+    <endEvent id="end"/>
+    <sequenceFlow id="flow1" sourceRef="start" targetRef="receiveTask1"/>
+    <sequenceFlow id="flow2" sourceRef="receiveTask1" targetRef="receiveTask2"/>
+    <sequenceFlow id="flow3" sourceRef="receiveTask2" targetRef="end"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ReceiveTask">
+    <bpmndi:BPMNPlane bpmnElement="ReceiveTask" id="BPMNPlane_ReceiveTask">
+      <bpmndi:BPMNShape id="shape1" bpmnElement="start">
+        <omgdc:Bounds x="-120" y="-280.0" width="30.0" height="30.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape2" bpmnElement="receiveTask1">
+        <omgdc:Bounds x="-165.0" y="-200.0" width="120.0" height="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape3" bpmnElement="receiveTask2">
+        <omgdc:Bounds x="-165.0" y="-70.0" width="120.0" height="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape5" bpmnElement="end">
+        <omgdc:Bounds x="-120" y="60.0" width="30.0" height="30.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge1" bpmnElement="flow1">
+        <omgdi:waypoint x="-105.0" y="-250.0"/>
+        <omgdi:waypoint x="-105.0" y="-200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge2" bpmnElement="flow2">
+        <omgdi:waypoint x="-105.0" y="-120.0"/>
+        <omgdi:waypoint x="-105.0" y="-70.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge3" bpmnElement="flow3">
+        <omgdi:waypoint x="-105.0" y="10.0"/>
+        <omgdi:waypoint x="-105.0" y="60.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

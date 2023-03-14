@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * <a href="https://www.bilibili.com/video/BV1Ut411y7NT/?p=9">HelloWorld Demo</a>
  * <pre>
- * 部署 ID         ACT_RE_DEPLOYMENT - ID_
- * 流程定义 ID      ACT_RE_PROCDEF - ID_
- * 流程实例 ID      ACT_RU_EXECUTION - ID_
- * 流程执行 ID      ACT_RU_TASK - EXECUTION_ID_
- * 任务 ID         ACT_RU_TASK - ID_
+ * 部署 ID         ACT_RE_DEPLOYMENT   ID_
+ * 流程定义 ID      ACT_RE_PROCDEF      ID_
+ * 流程实例 ID      ACT_RU_EXECUTION    PROC_INST_ID_
+ * 流程执行 ID      ACT_RU_EXECUTION    ID_
+ * 任务 ID         ACT_RU_TASK         ID_
  * </pre>
  *
  * @author ljh
