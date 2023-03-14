@@ -50,7 +50,10 @@ public class SequenceFlowTest {
     public void testCompleteTask1() {
         TaskService taskService = this.processEngine.getTaskService();
         List<Task> taskList = taskService.createTaskQuery().taskAssignee("张三").list();
-        taskList.forEach(task -> taskService.complete(task.getId()));
+        taskList.forEach(task -> {
+            taskService.complete(task.getId());
+            log.info("完成任务");
+        });
     }
 
     /**
@@ -62,6 +65,9 @@ public class SequenceFlowTest {
         List<Task> taskList = taskService.createTaskQuery().taskAssignee("李四").list();
         Map<String, Object> variables = new HashMap<>();
         variables.put("outcome", "不重要");
-        taskList.forEach(task -> taskService.complete(task.getId(), variables));
+        taskList.forEach(task -> {
+            taskService.complete(task.getId(), variables);
+            log.info("完成任务");
+        });
     }
 }

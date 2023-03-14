@@ -65,7 +65,7 @@ public class ProcessInstanceTest {
             // 完成任务
             taskService.complete(task.getId());
             // taskService.complete(taskId[, variables, localScope]);
-            log.info("任务完成");
+            log.info("完成任务");
         });
     }
 
