@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
-             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
-             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
-             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
-             targetNamespace="http://www.activiti.org/processdef">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="ExclusiveGateway" name="ExclusiveGateway" isExecutable="true">
     <startEvent id="start"/>
     <userTask id="userTask1" name="费用报销申请" activiti:assignee="张三"/>
@@ -16,13 +11,13 @@
     <sequenceFlow id="flow1" sourceRef="start" targetRef="userTask1"/>
     <sequenceFlow id="flow2" sourceRef="userTask1" targetRef="eg"/>
     <sequenceFlow id="flow3" sourceRef="eg" targetRef="userTask2" name="费用&lt;500">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression">${money&lt;500}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression">${money&lt;500}</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="eg" targetRef="userTask3" name="500&lt;=费用&lt;1000">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression">${money&gt;=500&amp;&amp;money&lt;1000}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression">${money&gt;=500&amp;&amp;money&lt;1000}</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow5" sourceRef="eg" targetRef="userTask4" name="费用&gt;=1000">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression">${money&gt;=1000}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression">${money&gt;=1000}</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="userTask2" targetRef="end"/>
     <sequenceFlow id="flow7" sourceRef="userTask3" targetRef="end"/>

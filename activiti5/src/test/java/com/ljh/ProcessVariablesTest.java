@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * <a href="https://www.bilibili.com/video/BV1Ut411y7NT?p=12">流程变量</a>
- * <p><a href="https://www.activiti.org/5.x/userguide/#restVariables">变量类型</a>
+ * <p><a href="https://www.activiti.org/5.x/userguide/#restVariables">Variable Types</a>
  *
  * @author ljh
  * @since 2023/3/8 11:31

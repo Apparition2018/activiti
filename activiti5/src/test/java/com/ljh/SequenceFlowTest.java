@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <a href="https://www.activiti.org/5.x/userguide/#bpmnSequenceFlow">顺序流</a>
- * <p><a href="https://www.bilibili.com/video/BV1Ut411y7NT?p=14">顺序流</a>
+ * <a href="https://www.bilibili.com/video/BV1Ut411y7NT?p=14">顺序流</a>
+ * <p><a href="https://www.activiti.org/5.x/userguide/#bpmnSequenceFlow">Sequence Flow</a>
  *
  * @author ljh
  * @since 2023/3/8 16:20

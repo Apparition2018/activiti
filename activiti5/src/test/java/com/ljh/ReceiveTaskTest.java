@@ -9,7 +9,8 @@ import org.activiti.engine.runtime.Execution;
 import org.junit.Test;
 
 /**
- * <a href="https://www.activiti.org/5.x/userguide/#bpmnReceiveTask">Receive Task</a>
+ * <a href="https://www.bilibili.com/video/BV1Ut411y7NT?p=17">接受任务</a>
+ * <p><a href="https://www.activiti.org/5.x/userguide/#bpmnReceiveTask">Receive Task</a>
  *
  * @author ljh
  * @since 2023/3/14 16:08

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <a href="https://www.activiti.org/5.x/userguide/#bpmnGateways">网关</a>
+ * <a href="https://www.activiti.org/5.x/userguide/#bpmnGateways">Gateways</a>
  *
  * @author ljh
  * @since 2023/3/8 17:24

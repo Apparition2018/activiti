@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
-             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
-             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
-             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
-             targetNamespace="http://www.activiti.org/processdef">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="ParallelGateway" name="ParallelGateway" isExecutable="true">
     <startEvent id="start"/>
     <parallelGateway id="pg1"/>
-    <userTask id="userTask1" name="付款" xmlns:activiti="http://activiti.org/bpmn" activiti:assignee="买家"/>
-    <userTask id="userTask2" name="收款" xmlns:activiti="http://activiti.org/bpmn" activiti:assignee="商家"/>
-    <userTask id="userTask3" name="发货" xmlns:activiti="http://activiti.org/bpmn" activiti:assignee="商家"/>
-    <userTask id="userTask4" name="收货" xmlns:activiti="http://activiti.org/bpmn" activiti:assignee="买家"/>
+    <userTask id="userTask1" name="付款" activiti:assignee="买家"/>
+    <userTask id="userTask2" name="收款" activiti:assignee="商家"/>
+    <userTask id="userTask3" name="发货" activiti:assignee="商家"/>
+    <userTask id="userTask4" name="收货" activiti:assignee="买家"/>
     <parallelGateway id="pg2"/>
     <endEvent id="end"/>
     <sequenceFlow id="flow1" sourceRef="start" targetRef="pg1"/>
     <sequenceFlow id="flow2" sourceRef="pg1" targetRef="userTask1">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression"/>
+      <conditionExpression xsi:type="tFormalExpression"/>
     </sequenceFlow>
     <sequenceFlow id="flow3" sourceRef="userTask1" targetRef="userTask2"/>
     <sequenceFlow id="flow4" sourceRef="userTask2" targetRef="pg2"/>
     <sequenceFlow id="flow5" sourceRef="pg1" targetRef="userTask3">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression"/>
+      <conditionExpression xsi:type="tFormalExpression"/>
     </sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="userTask3" targetRef="userTask4"/>
     <sequenceFlow id="flow7" sourceRef="userTask4" targetRef="pg2"/>
     <sequenceFlow id="flow8" sourceRef="pg2" targetRef="end">
-      <conditionExpression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tFormalExpression"/>
+      <conditionExpression xsi:type="tFormalExpression"/>
     </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_ParallelGateway">
