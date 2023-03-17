@@ -4,7 +4,7 @@
 ## Reference
 1. [Activiti 5.15 用户手册](http://1json.com/activiti/activiti-userguide.html)
 2. [Activiti 5.22 User Guide](https://www.activiti.org/5.x/userguide/)
-3. [Activiti 5.2 视频教程](https://www.bilibili.com/video/BV1t64y147v4)
+3. [Activiti 5.22 视频教程](https://www.bilibili.com/video/BV1Ut411y7NT)
 ---
 ## [配置](https://www.activiti.org/5.x/userguide/#_configuration)
 - @see [activiti.cfg.xml](src/main/resources/activiti.cfg.xml)
